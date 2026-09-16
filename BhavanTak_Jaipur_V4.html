@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="BhavanTak - Jaipur mein ghar banane ka construction material ek jagah. Customer requirement bhejein aur local suppliers se connect karein.">
+<title>BhavanTak | Jaipur Construction Material</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f6f7f9;color:#17212b}
+header{position:sticky;top:0;z-index:20;background:#fff;padding:13px 6%;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px #ddd}
+.logo{font-size:28px;font-weight:800}.logo span{color:#e67e22}
+nav a{margin-left:17px;text-decoration:none;color:#17212b;font-weight:600}
+.hero{background:linear-gradient(135deg,#fff0dc,#fff8ef);text-align:center;padding:58px 6% 52px}
+.badge{display:inline-block;background:#fff;border:1px solid #f2d2ae;border-radius:30px;padding:8px 15px;font-weight:700;color:#d96d12}
+h1{font-size:44px;line-height:1.12;margin:18px auto 12px;max-width:850px}
+.hero p{font-size:18px;color:#59636e;max-width:720px;margin:0 auto 25px}
+.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.search{max-width:720px;margin:25px auto 18px;display:flex;gap:8px}
+.search input{margin:0}
+input,select,textarea{width:100%;padding:13px;border:1px solid #dfe3e8;border-radius:9px;font-size:15px;background:#fff;margin-bottom:12px}
+button,.btn{border:0;border-radius:9px;padding:13px 19px;background:#e67e22;color:#fff;font-weight:800;cursor:pointer}
+.big{font-size:17px;padding:15px 25px}.secondary{background:#17212b}
+section{padding:48px 6%}.section-title{text-align:center;margin:0 0 10px;font-size:30px}
+.section-sub{text-align:center;color:#69737e;margin:0 auto 28px;max-width:680px}
+.grid{max-width:1050px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{background:#fff;border-radius:14px;padding:24px;text-align:center;box-shadow:0 3px 14px #e5e7eb;transition:.2s;cursor:pointer}
+.card:hover{transform:translateY(-3px)}.material-icon{font-size:38px}
+.card h3{margin:10px 0 5px}.card p{color:#68727d;font-size:14px;margin:0}
+.features{background:#fff}.feature{padding:20px}.feature strong{display:block;margin:8px 0}.feature p{color:#667;margin:0;font-size:14px}
+.steps{max-width:1050px;margin:auto}.step{background:#fff;border-radius:14px;padding:22px;box-shadow:0 3px 14px #e5e7eb}.num{font-size:25px;font-weight:900;color:#e67e22}
+.form-wrap{max-width:720px;margin:auto;background:#fff;padding:27px;border-radius:15px;box-shadow:0 3px 14px #e5e7eb}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-grid>*{min-width:0}.full{grid-column:1/-1}
+label{display:block;font-weight:700;margin:2px 0 6px}.notice{display:none;background:#eaf8ed;color:#176b2c;padding:11px;border-radius:8px;margin:8px 0 13px;font-weight:700}
+.supplier{background:#17212b;color:#fff}.supplier .form-wrap{color:#17212b}
+.areas{max-width:850px;margin:auto;display:flex;flex-wrap:wrap;justify-content:center;gap:9px}
+.area{background:#fff;border:1px solid #e4e7eb;border-radius:20px;padding:9px 14px;font-size:14px}
+.cta{text-align:center;background:#fff0dc}.cta h2{font-size:31px;margin:0 0 10px}.cta p{color:#5d6570}
+footer{text-align:center;padding:25px;color:#69737e;font-size:14px}
+.float-wa{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:28px;box-shadow:0 4px 15px #999;z-index:30}
+.small-note{text-align:center;color:#77818b;font-size:13px;margin-top:10px}
+@media(max-width:720px){
+ header{padding:12px 5%}.logo{font-size:25px}nav{display:none}
+ h1{font-size:32px}.hero{padding:43px 5%}.search{flex-direction:column}
+ .search input{margin-bottom:0}.grid{grid-template-columns:1fr 1fr}
+ section{padding:40px 5%}.form-wrap{padding:20px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}
+}
+@media(max-width:430px){.grid{grid-template-columns:1fr}.big{width:100%}.actions .btn{width:100%}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Bhavan<span>Tak</span></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#materials">Materials</a>
+    <a href="#how">Kaise Kaam Karega</a>
+    <a href="#requirement">Requirement</a>
+    <a href="#supplier">Supplier</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="badge">📍 Jaipur • Construction Material</div>
+  <h1>Ghar Banane Ka Material, Ek Jagah</h1>
+  <p>Cement, Bajri, Rodi, Sand, Sariya aur ईंट — apni requirement bhejiye aur BhavanTak se supplier enquiry shuru kijiye.</p>
+  <div class="search">
+    <input id="materialSearch" placeholder="Material search karein..." oninput="filterMaterials()">
+    <button onclick="filterMaterials()">🔍 Search</button>
+  </div>
+  <div class="actions">
+    <button class="btn big" onclick="goRequirement()">📋 Material Ki Requirement Bhejein</button>
+    <a class="btn big secondary" href="#supplier">🏪 Supplier Partner Banein</a>
+  </div>
+  <div class="small-note">Starting model: requirement → WhatsApp enquiry → supplier connection</div>
+</section>
+
+<section class="features">
+  <div class="grid">
+    <div class="feature"><div class="material-icon">🧱</div><strong>Basic Materials</strong><p>Construction ke basic materials ek jagah.</p></div>
+    <div class="feature"><div class="material-icon">📲</div><strong>Easy Enquiry</strong><p>Requirement WhatsApp par bhejna simple.</p></div>
+    <div class="feature"><div class="material-icon">🏪</div><strong>Supplier Connect</strong><p>Local suppliers ke saath connection ka simple model.</p></div>
+  </div>
+</section>
+
+<section id="materials">
+  <h2 class="section-title">🧱 Materials</h2>
+  <p class="section-sub">Material select karke seedha requirement form par ja sakte hain.</p>
+  <div class="grid" id="materialGrid">
+    <div class="card" data-name="cement" onclick="selectMaterial('Cement')"><div class="material-icon">🧱</div><h3>Cement</h3><p>Building construction</p></div>
+    <div class="card" data-name="bajri aggregate" onclick="selectMaterial('Bajri')"><div class="material-icon">🪨</div><h3>Bajri</h3><p>Construction aggregate</p></div>
+    <div class="card" data-name="rodi stone" onclick="selectMaterial('Rodi')"><div class="material-icon">🪨</div><h3>Rodi</h3><p>Road & construction work</p></div>
+    <div class="card" data-name="sand ret" onclick="selectMaterial('Sand')"><div class="material-icon">🏖️</div><h3>Sand</h3><p>Construction sand</p></div>
+    <div class="card" data-name="sariya steel" onclick="selectMaterial('Sariya')"><div class="material-icon">🏗️</div><h3>Sariya</h3><p>Steel reinforcement</p></div>
+    <div class="card" data-name="eent brick ईंट" onclick="selectMaterial('ईंट')"><div class="material-icon">🧱</div><h3>ईंट</h3><p>Bricks for construction</p></div>
+  </div>
+</section>
+
+<section id="how" class="features">
+  <h2 class="section-title">⚙️ BhavanTak Kaise Kaam Karega?</h2>
+  <p class="section-sub">Simple process — abhi WhatsApp based, baad mein database aur admin panel add kiya ja sakta hai.</p>
+  <div class="grid steps">
+    <div class="step"><div class="num">01</div><h3>Requirement Bhejo</h3><p>Material, quantity aur delivery location bharo.</p></div>
+    <div class="step"><div class="num">02</div><h3>Enquiry Jaayegi</h3><p>BhavanTak ko WhatsApp par enquiry milegi.</p></div>
+    <div class="step"><div class="num">03</div><h3>Supplier Connection</h3><p>Available supplier se customer ko connect kiya ja sakta hai.</p></div>
+  </div>
+</section>
+
+<section id="requirement">
+  <h2 class="section-title">📋 Material Ki Requirement Bhejein</h2>
+  <p class="section-sub">Details bhariye. Submit karte hi WhatsApp mein enquiry message ready ho jayega.</p>
+  <div class="form-wrap">
+    <div class="form-grid">
+      <div><label>Naam *</label><input id="cName" placeholder="Aapka naam"></div>
+      <div><label>Mobile *</label><input id="cMobile" type="tel" inputmode="numeric" maxlength="10" placeholder="10 digit mobile"></div>
+      <div><label>Material *</label>
+        <select id="cMaterial">
+          <option value="">Material select karein</option>
+          <option>Cement</option><option>Bajri</option><option>Rodi</option><option>Sand</option><option>Sariya</option><option>ईंट</option>
+        </select>
+      </div>
+      <div><label>Quantity *</label><input id="cQuantity" placeholder="Jaise: 50 bags / 5 ton / 1000 ईंट"></div>
+      <div class="full"><label>Jaipur Area / Delivery Location *</label><input id="cLocation" placeholder="Jaise: Mansarovar, Jagatpura..."></div>
+      <div class="full"><label>Preferred Delivery Date</label><input id="cDate" type="date"></div>
+    </div>
+    <div id="customerNotice" class="notice"></div>
+    <button class="big" style="width:100%" onclick="sendCustomerWhatsApp()">📲 WhatsApp Enquiry Bhejein</button>
+  </div>
+</section>
+
+<section class="areas">
+  <h2 class="section-title" style="width:100%">📍 Jaipur Areas</h2>
+  <span class="area">Mansarovar</span><span class="area">Vaishali Nagar</span><span class="area">Malviya Nagar</span>
+  <span class="area">Jagatpura</span><span class="area">Sanganer</span><span class="area">Sitapura</span>
+  <span class="area">Pratap Nagar</span><span class="area">Jhotwara</span><span class="area">Vidhyadhar Nagar</span>
+</section>
+
+<section class="supplier" id="supplier">
+  <h2 class="section-title">🏪 Supplier Partner Banein</h2>
+  <p class="section-sub" style="color:#cbd0d6">Apni shop aur material details BhavanTak ko WhatsApp par bhejein.</p>
+  <div class="form-wrap">
+    <div class="form-grid">
+      <div><label>Shop Name *</label><input id="sShop" placeholder="Aapki shop ka naam"></div>
+      <div><label>Mobile *</label><input id="sMobile" type="tel" inputmode="numeric" maxlength="10" placeholder="10 digit mobile"></div>
+      <div class="full"><label>Shop Address / Area *</label><input id="sAddress" placeholder="Shop address, Jaipur"></div>
+      <div><label>Material *</label>
+        <select id="sMaterial">
+          <option value="">Material select karein</option>
+          <option>Cement</option><option>Bajri</option><option>Rodi</option><option>Sand</option><option>Sariya</option><option>ईंट</option>
+        </select>
+      </div>
+      <div><label>Rate *</label><input id="sRate" placeholder="Jaise: ₹350/bag"></div>
+      <div class="full"><label>Delivery Available?</label>
+        <select id="sDelivery"><option>Yes</option><option>No</option></select>
+      </div>
+    </div>
+    <div id="supplierNotice" class="notice"></div>
+    <button style="width:100%" onclick="sendSupplierWhatsApp()">📲 Supplier Details WhatsApp Karein</button>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Ghar Banane Ka Material Chahiye?</h2>
+  <p>Apni requirement bhejiye — BhavanTak se enquiry shuru kijiye.</p>
+  <button class="btn big" onclick="goRequirement()">📋 Material Ki Requirement Bhejein</button>
+</section>
+</main>
+
+<a class="float-wa" href="https://wa.me/919928128195?text=Namaste%20BhavanTak%2C%20mujhe%20construction%20material%20ki%20requirement%20hai." target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
+
+<footer>© 2026 BhavanTak • Jaipur • Customer-Supplier Connect</footer>
+
+<script>
+const WHATSAPP_NUMBER = "919928128195";
+
+function goRequirement(){
+  document.getElementById("requirement").scrollIntoView({behavior:"smooth"});
+}
+function selectMaterial(material){
+  document.getElementById("cMaterial").value=material;
+  goRequirement();
+}
+function filterMaterials(){
+  const q=document.getElementById("materialSearch").value.toLowerCase().trim();
+  document.querySelectorAll("#materialGrid .card").forEach(card=>{
+    card.style.display=(!q || card.dataset.name.includes(q)) ? "" : "none";
+  });
+  document.getElementById("materials").scrollIntoView({behavior:"smooth"});
+}
+function validMobile(v){return /^[6-9]\d{9}$/.test(v)}
+function sendWhatsApp(message,noticeId){
+  const url="https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message);
+  window.open(url,"_blank");
+  const n=document.getElementById(noticeId);
+  n.style.display="block";
+  n.textContent="WhatsApp enquiry ready hai.";
+}
+function sendCustomerWhatsApp(){
+  const name=document.getElementById("cName").value.trim();
+  const mobile=document.getElementById("cMobile").value.trim();
+  const material=document.getElementById("cMaterial").value;
+  const quantity=document.getElementById("cQuantity").value.trim();
+  const location=document.getElementById("cLocation").value.trim();
+  const date=document.getElementById("cDate").value;
+  if(!name||!mobile||!material||!quantity||!location){alert("Kripya sabhi required details bhar dein.");return}
+  if(!validMobile(mobile)){alert("Kripya valid 10 digit mobile number dalein.");return}
+  const msg=`🏠 BhavanTak Customer Requirement
+
+Naam: ${name}
+Mobile: ${mobile}
+Material: ${material}
+Quantity: ${quantity}
+Delivery Location: ${location}
+Preferred Delivery Date: ${date || "Not specified"}
+
+BhavanTak enquiry.`;
+  sendWhatsApp(msg,"customerNotice");
+}
+function sendSupplierWhatsApp(){
+  const shop=document.getElementById("sShop").value.trim();
+  const mobile=document.getElementById("sMobile").value.trim();
+  const address=document.getElementById("sAddress").value.trim();
+  const material=document.getElementById("sMaterial").value;
+  const rate=document.getElementById("sRate").value.trim();
+  const delivery=document.getElementById("sDelivery").value;
+  if(!shop||!mobile||!address||!material||!rate){alert("Kripya sabhi required details bhar dein.");return}
+  if(!validMobile(mobile)){alert("Kripya valid 10 digit mobile number dalein.");return}
+  const msg=`🏪 BhavanTak Supplier Registration
+
+Shop Name: ${shop}
+Mobile: ${mobile}
+Address: ${address}
+Material: ${material}
+Rate: ${rate}
+Delivery Available: ${delivery}
+
+Supplier BhavanTak par list hona chahta hai.`;
+  sendWhatsApp(msg,"supplierNotice");
+}
+</script>
+</body>
+</html>
